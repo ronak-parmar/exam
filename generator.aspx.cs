@@ -13,6 +13,17 @@ namespace kyubi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["Studentlogin"]!= null)
+            {
+                Response.Redirect("login.aspx");
+            }
+
+            if (Session["teacherlogin"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+
             DropDownList1.Items.Add(new ListItem("Select Subject", ""));
             DropDownList2.Items.Add(new ListItem("Select Std", ""));
             DropDownList3.Items.Add(new ListItem("Select Chapter", ""));

@@ -17,9 +17,12 @@ namespace kyubi
             StringBuilder htmlTable = new StringBuilder();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Studentlogin"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
 
-           
-                if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
                     BindData();
           
         }
@@ -30,7 +33,7 @@ namespace kyubi
 
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("select testmaster.questionidlist ,testmaster.name,testmaster.marks,login.name as loginname from testmaster join login on testmaster.loginid=login.id where testmaster.std=@std", conn);
+                MySqlCommand cmd = new MySqlCommand("select testmaster.testid, testmaster.questionidlist ,testmaster.name,testmaster.marks,login.name as loginname from testmaster join login on testmaster.loginid=login.id where testmaster.std=@std", conn);
                 cmd.Parameters.AddWithValue("@std", Session["std"]);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -39,14 +42,19 @@ namespace kyubi
                 {   
 
                         
-                    htmlTable.Append("<tr onclick=\"attempttest('" + reader["questionidlist"] + "')\" class=\"trtag\" style=\"margin-top:10px\">");
+                htmlTable.Append("<tr class=\" list-group-item trtag\" onclick=\"attempttest('" + reader["questionidlist"] + "','"+reader["testid"] +"')\"  style=\"margin-top:10px\">");
 
-                htmlTable.Append("<td>" + reader["name"] + "</td>");
-                    htmlTable.Append("<td>" + reader["loginname"] + "</td>");
-                    htmlTable.Append("<td>" + reader["marks"] + "</td>");
+                htmlTable.Append("<td>Name:" + reader["name"] +           "</td>");
+                htmlTable.Append("<td>TeacherName:-" + reader["loginname"] +          "</td>");
+                htmlTable.Append("<td>Marks" + reader["marks"] + "</td>");
                 htmlTable.Append("</tr>");
 
             }
+
+                if(!reader.HasRows)
+                {
+                    Label1.Text = "No Test Available";
+                }
 
             DBDataPlaceHolder.Controls.Add(new Literal { Text = htmlTable.ToString() });
             

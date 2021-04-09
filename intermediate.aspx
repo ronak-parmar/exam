@@ -4,16 +4,24 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Intermediate</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
-    <form id="form1" runat="server">
-        <asp:Button ID="Button1" runat="server" Text="Add Question" OnClick="Button1_Click"  />
-        <asp:Button ID="Button2" runat="server" Text="Genrate Text" OnClick="Button2_Click" />
+    <div class="container">
+
+    <form id="form1" runat="server" style="margin:20px">
+        <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Add Question" OnClick="Button1_Click"  />
+        <asp:Button ID="Button2" runat="server" CssClass="btn btn-primary" Text="Genrate Text" OnClick="Button2_Click" />
         
-        <div>
-                List of Test
+        <div id="previoustestdata">
+                
         </div>
+
     </form>
+    </div>
+   
+    
 </body>
 </html>

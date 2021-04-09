@@ -15,6 +15,10 @@ namespace kyubi
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Session["Studentlogin"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
             TextBox1.Text = Session["id"].ToString();
         }
 

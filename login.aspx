@@ -4,31 +4,49 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Test Master - Login</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-   <!-- <style>/* ---- reset ---- */ body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } 
-             canvas{ display: block; vertical-align: bottom; }
-/* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%;
-background-color: #232741;;
-background-repeat: no-repeat; background-size: 20%; background-position: 50% 50%; }
-/* ---- stats.js ---- */ .count-particles{ background: #000022;position: absolute; top: 48px; left: 0;
-width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px;
-line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }</style>
-      -->
-    <div id="particles-js">
-        <form id="form1" runat="server">
-        <div class="auto-style1">
+    <style>
+        .login-form {
+    width:50%;
+    margin: 50px auto;
+ 
+}
+.login-form form {
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
 
-            Email:-<asp:TextBox ID="Email" runat="server"></asp:TextBox>
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {        
+    font-size: 15px;
+    font-weight: bold;
+}
+    </style>
+    <div class="container login-form">
+        <form id="form1" runat="server" >
+            <h1 class="text-center">Login</h1>
+      <div class="form-group">
 
-            <br />
-            Password:-<asp:TextBox ID="Password"  runat="server"></asp:TextBox>
+            Email:-<asp:TextBox ID="Email" runat="server" CssClass="form-control"></asp:TextBox>
+          </div>
+
+       <div class="form-group">
+            Password:-<asp:TextBox ID="Password" TextMode="Password" runat="server"  CssClass="form-control"></asp:TextBox>
         </div>
+            <asp:Label ID="Mesg" cssClass="text-center" runat="server" ForeColor="Red" Text=""></asp:Label>
         <p>
            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
         &nbsp;
-            <asp:Label ID="Mesg" runat="server" ForeColor="Red" Text=""></asp:Label>
         </p>
     </form>
         </div> 
