@@ -7,6 +7,11 @@
     <title></title>
 </head>
 <body>
+    <style>
+        .trtag:hover{
+            background-color:aquamarine;
+        }
+    </style>
     <form id="form1" runat="server">
         <div>
         <table style="width: 50%; text-align: center; background-color: skyblue;">  
@@ -16,7 +21,18 @@
                 </td>  
             </tr>  
         </table> 
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
+
+    <script>
+        function attempttest(id) {
+            console.log(id)
+            localStorage.clear()
+            localStorage.setItem("questionidlist", id)
+            window.location.href = "https://localhost:44366/test";
+        }
+    </script>
+
 </body>
 </html>

@@ -13,7 +13,6 @@ namespace kyubi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
 
@@ -28,7 +27,7 @@ namespace kyubi
             }
             else if (Password.Text.Length == 0)
             {
-                Mesg.Text = "Fool Enter Password";
+                Mesg.Text = "Enter Password";
             }
             else
             {
@@ -50,7 +49,8 @@ namespace kyubi
                     {
                
                         Mesg.Text = "Login Successful!";
-                        if (reader["flag"].Equals(1))
+
+                        if (reader["flag"].ToString().Equals("True"))
                         {
                             Session["teacherlogin"] = true;
                             Session["id"] = reader["id"];
@@ -59,11 +59,12 @@ namespace kyubi
                         }
                         else
                         {
+                           
+
                             Session["Studentlogin"] = true;
                             Session["id"] = reader["id"];
                             Session["std"]=reader["std"];
                             Response.Redirect("student.aspx");
-                        
                         }
                     }
                     else
