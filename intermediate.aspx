@@ -15,9 +15,13 @@
         <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Add Question" OnClick="Button1_Click"  />
         <asp:Button ID="Button2" runat="server" CssClass="btn btn-primary" Text="Genrate Text" OnClick="Button2_Click" />
         
-        <div id="previoustestdata">
-                
-        </div>
+       <table style="width: 50%; text-align: center;>  
+            <tr>  
+                <td align="center">  
+                    <asp:PlaceHolder ID="DBDataPlaceHolder" runat="server"></asp:PlaceHolder>  
+                </td>  
+            </tr>  
+        </table>
 
     </form>
     </div>

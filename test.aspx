@@ -106,10 +106,9 @@
 
                 let userid = $('#TextBox1').val();
                 
-                fetch(`http://localhost:5000/submit/${userid}/${numCorrect}/${testid}`)
+                fetch(`http://localhost:5000/submit/${userid}/${numCorrect}/${testid}/${id}`)
                     .then((res) => res.json())
                     .then((data) => {
-                        console.log(data)
                         alert("Test Submited!")
                         setTimeout(() => {
 

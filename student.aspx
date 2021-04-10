@@ -33,7 +33,7 @@
 
     <script>
         function attempttest(id,tsetid) {
-            console.log(id)
+            
             localStorage.clear()
             localStorage.setItem("questionidlist", id)
             localStorage.setItem("tsetid", tsetid)
